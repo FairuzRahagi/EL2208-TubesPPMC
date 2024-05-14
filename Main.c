@@ -1,4 +1,4 @@
-
+#include "Djikstra.c"
 #include "files.c"
 #include "files.h"
 #include <stdio.h>
@@ -15,7 +15,7 @@ int main() {
 
   readMaze(filename, &maze, &row, &col, &start, &dest);
 
-    
+  djikstra()
 
   printMatrix(row, col, maze);
   return 0;
