@@ -3,23 +3,29 @@ name: C/C++ CI
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
-  build:
-
+  build-windows:
     runs-on: windows-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: choco install make
+
+      - name: Configure project
+        run: ./configure
+
+      - name: Build project
+        run: make
+
+      - name: Run tests
+        run: make check
+
+      - name: Run distcheck
+        run: make distcheck
