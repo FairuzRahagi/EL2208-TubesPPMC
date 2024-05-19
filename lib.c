@@ -7,6 +7,6 @@ typedef struct List {
 
 } List;
 
-void aStarSearch(char** maze) {
+void dijkstra(char** maze) {
 
 }
